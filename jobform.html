@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible"content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>jobform</title>
+    <link rel="stylesheet" href="from.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="apply_box">
+            <h1> job Application 
+                <span class="title_small">(web)</span>
+            </h1>
+            <form action="">
+                <div class="from_container">
+                    <div class="from_control">
+                        <label for="frist_name">fisrt Name</label>
+                        <input id="frist_name"name="frist_name"
+                        placeholder="enter frist name..."/>
+                    </div>
+                    <div>
+                        <div class="from_control">
+                            <label for="last_name">last name</label> 
+                            <input id="last_name" name="last_name"
+                            placeholder="enter last Name..."/>
+                        </div>
+                        <div class="from_control">
+                            <label for="email">email</label> 
+                            <input type="email" id="email"name="email"
+                            placeholder="enter email..."/>
+                        </div>
+                        <div class="from_control">
+                            <label for="job_role">job role</label> 
+                            <select id="job_role" name="job_role">
+                                <option value="">Select job role</option>
+                                <option value="frontend"> frontend developer</option>
+                                <option value="backend"> baxkend developer</option>
+                                <option value="full_stack"> full satck developer</option>
+                                <option value="ui_ux"> ui ux designer</option>
+                            </select>
+                            
+                        </div>
+                        <div class="textarea_control">
+                            <label for="from_control">Address</label>
+                            <textarea
+                            id="address"
+                            name="address"
+                            row="4"
+                            cols="50"
+                            placeholder="enter address"></textarea>
+                        </div>
+                        <div class="control_from">
+                            <label for=" city">city</label> 
+                            <input
+                            type="text"id="city"name="city"
+                            placeholder="enter city.."/> 
+                           </div>
+                        <div class="control_from">
+                         <label for=" pincode">pincode</label> 
+                         <input
+                         type="number"id="pincode"name="pincode"
+                         placeholder="enter pincode.."/> 
+                        </div>
+                        <div class="control_from">
+                            <label for=" date">date</label> 
+                            <input value="2022-02-3"
+                            type="date"id="date"name="date"/>
+                            
+                    </div>
+                    <div class="control_from">
+                        <label for=" uplasd">upload you cv</label> 
+                      "  <input 
+                        type="file"id="uploasd"name="upload"/>
+                        
+                </div>
+                </div>
+                <div class="button_container">
+                    <button type="submit">apply now</button>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    
+</body>
+</html>
