@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Information</title>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.form input[type="text"] {
+    padding: 10px;
+    width: 200px;
+}
+
+.form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#stockData {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: left;
+}
+
+   </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Market Information</h1>
+        <div class="form">
+            <input type="text" id="symbolInput" placeholder="Enter Stock Symbol (e.g., AAPL)">
+            <button onclick="getStockData()">Get Data</button>
+        </div>
+        <div id="stockData"></div>
+    </div>
+
+    <script >
+        async function getStockData() {
+    const symbol = document.getElementById('symbolInput').value.toUpperCase();
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.chart.error) {
+            document.getElementById('stockData').innerHTML = "<p>Invalid symbol. Please enter a valid stock symbol.</p>";
+        } else {
+            const result = data.chart.result[0];
+            const meta = result.meta;
+            const quote = result.indicators.quote[0];
+
+            const output = `
+                <h2>${symbol}</h2>
+                <p>Price: ${quote.close}</p>
+                <p>Open: ${quote.open}</p>
+                <p>High: ${quote.high}</p>
+                <p>Low: ${quote.low}</p>
+                <p> news:${quote.news}</p>
+            `;
+            document.getElementById('stockData').innerHTML = output;
+        }
+    } catch (error) {
+        console.log('Error fetching stock data:', error);
+    }
+}
+
+    </script>
+</body>
+</html>
